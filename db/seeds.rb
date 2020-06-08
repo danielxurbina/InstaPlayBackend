@@ -23,8 +23,8 @@ user2.image.attach(
     content_type: 'image/jpeg'
 )
 
-song1 = Song.create(user_id: user1.id, title: "Weekend 4 The Girls (Harmless Remix)")
-song2 = Song.create(user_id: user2.id, title: "Meeting Points At 2AM")
+song1 = Song.create(user_id: user1.id, title: "Weekend 4 The Girls (Harmless Remix)", description: "my new single, wrote it when i was traveling in germany, hope you guys like it!", post_image: "https://m.media-amazon.com/images/I/91+sfzHEEYL._SS500_.jpg")
+song2 = Song.create(user_id: user2.id, title: "Meeting Points At 2AM", description: "wrote this song for my little brother, the days when were so young and so alive, i love you.", post_image: "https://i1.sndcdn.com/artworks-000192976945-e71889-t500x500.jpg")
 
 song1.song.attach(
     io: File.open('./public/songs/weekend-for-the-girls.mp3'),
@@ -49,5 +49,3 @@ playlist1.image.attach(
 ps1 = AddSongToPlaylist.create(song_id: song1.id, playlist_id: playlist1.id)
 
 f1 = Follow.create(followee_id: user1.id, follower_id: user2.id)
-
-post1 = Post.create(song_id: song2.id, user_id: user2.id, description: "wrote this song for my little brother, the days when were so young and so alive, i love you.", image_url: "https://i1.sndcdn.com/artworks-000192976945-e71889-t500x500.jpg")

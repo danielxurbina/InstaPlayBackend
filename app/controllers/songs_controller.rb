@@ -5,7 +5,17 @@ class SongsController < ApplicationController
     end
 
     def create
-        song = Song.create(title: params[:song][:title])
+        puts "song params"
+        puts "song params"
+        puts "song params"
+        puts "song params"
+        puts "song params"
+        puts "song params"
+        puts params
+        puts "song_params"
+        puts "song_params"
+        puts song_params
+        song = Song.create(song_params)
         render json: song
     end
 
@@ -22,5 +32,11 @@ class SongsController < ApplicationController
         song_url = rails_blob_path(song.song)
 
         render json: {song: song, song_url: song_url}
+    end
+
+    private
+
+    def song_params
+        params.permit(:user_id, :title, :description, :post_image, :song)
     end
 end
