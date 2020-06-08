@@ -4,6 +4,8 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.string :title
       t.integer :duration
+      t.string :description
+      t.string :post_image
       t.timestamps
     end
   end

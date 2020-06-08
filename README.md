@@ -23,3 +23,11 @@ Things you may want to cover:
 
 * ...
 # InstaPlayBackend
+
+
+
+Delete posts controller/model/migration
+Add description, image_url to songs in the seed file
+on frontend fetch to songs and create the posts on frontend in the mainfeed
+when i create a new song, POST request, and then attach the file to that song that was created
+Have a hidden field on the from for the user id

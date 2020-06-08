@@ -12,10 +12,6 @@ class User < ApplicationRecord
     #playlist table
     has_many :playlists
 
-    #posts table
-    has_many :posts
-    has_many :posted_songs, through: :posts, :source => :song
-
     #active storage
     has_one_attached :image
 end
