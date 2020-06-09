@@ -39,10 +39,17 @@ song2.song.attach(
 )
 
 playlist1 = Playlist.create(user_id: user1.id, title: "Mood", description: 'chill vibes')
+playlist2 = Playlist.create(user_id: user1.id, title: "Drive", description: "enjoy the drive with this chill playlist")
 
 playlist1.image.attach(
     io: File.open('./public/playlist_images/playlist_image1.jpg'),
     filename: 'playlist_image1.jpg',
+    content_type: 'image/jpeg'
+)
+
+playlist2.image.attach(
+    io: File.open('./public/playlist_images/playlist_image2.jpg'),
+    filename: 'playlist_image2.jpg',
     content_type: 'image/jpeg'
 )
 
