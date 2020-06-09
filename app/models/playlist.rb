@@ -1,9 +1,8 @@
 class Playlist < ApplicationRecord
     belongs_to :user
-    has_many :songs
 
     has_many :add_song_to_playlists
-    has_many :playlist_songs, through: :add_song_to_playlists, :source => :song
+    has_many :songs, through: :add_song_to_playlists
 
 
     # i believe this is correct as in playlist will hold either the songs from the API or the songs
