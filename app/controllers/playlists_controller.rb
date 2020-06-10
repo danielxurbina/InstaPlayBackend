@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        playlist = Playlist.create(title: params[:playlist][:title], description: params[:playlist][:description])
+        playlist = Playlist.create(playlist_params)
         render json: playlist
     end
 
@@ -27,5 +27,11 @@ class PlaylistsController < ApplicationController
 
         image_url = rails_blob_path(playlist.image)
         render json: {playlist: playlist, image_url: image_url}
+    end
+
+    private
+
+    def playlist_params
+        params.permit(:user_id, :title, :description, :image)
     end
 end
