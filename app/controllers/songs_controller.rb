@@ -5,16 +5,6 @@ class SongsController < ApplicationController
     end
 
     def create
-        puts "song params"
-        puts "song params"
-        puts "song params"
-        puts "song params"
-        puts "song params"
-        puts "song params"
-        puts params
-        puts "song_params"
-        puts "song_params"
-        puts song_params
         song = Song.create(song_params)
         render json: song
     end
