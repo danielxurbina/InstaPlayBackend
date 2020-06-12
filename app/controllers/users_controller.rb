@@ -10,7 +10,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
-    def show
+    def show 
+        user = User.find(params[:id])
+        render json: user
+    end
+
+    def find_user
        user = User.find_by(username: params[:username])
        image = rails_blob_path(user.image)
 

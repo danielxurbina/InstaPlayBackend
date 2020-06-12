@@ -12,6 +12,12 @@ class User < ApplicationRecord
     #playlist table
     has_many :playlists
 
+    #comments table
+    has_many :comments
+
+    #likes table
+    has_many :likes
+
     #active storage
     has_one_attached :image
 end

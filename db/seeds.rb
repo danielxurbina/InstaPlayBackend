@@ -10,6 +10,7 @@ User.destroy_all
 
 user1 = User.create(name: "Daniel", username: "danielxurbina", password: "password", bio: "i like music", background_image_url: "https://dailycoffeenews.com/wp-content/uploads/2020/02/full-moon.jpg")
 user2 = User.create(name: "Eric", username: "dne", password: "password", bio: "aspiring artist, check me out", background_image_url: "https://wallpapercave.com/wp/wp3382033.png")
+user3 = User.create(name: "Uriel", username: "uriel123", password: "password", bio: "hello", background_image_url: "https://dailycoffeenews.com/wp-content/uploads/2020/02/full-moon.jpg")
 
 user1.image.attach(
     io: File.open('./public/user_images/daniel-image.jpg'),
@@ -20,6 +21,12 @@ user1.image.attach(
 user2.image.attach(
     io: File.open('./public/user_images/eric-image.jpg'),
     filename: 'eric-image.jpg',
+    content_type: 'image/jpeg'
+)
+
+user3.image.attach(
+    io: File.open('./public/user_images/uriel-image.jpeg'),
+    filename: 'uriel-image.jpeg',
     content_type: 'image/jpeg'
 )
 
@@ -56,3 +63,9 @@ playlist2.image.attach(
 ps1 = AddSongToPlaylist.create(song_id: song1.id, playlist_id: playlist1.id)
 
 f1 = Follow.create(followee_id: user1.id, follower_id: user2.id)
+
+likes1 = Like.create(song_id: song1.id, user_id: user2.id)
+comment1 = Comment.create(song_id: song1.id, user_id: user2.id, text: "Great song!")
+
+likes2 = Like.create(song_id: song2.id, user_id: user1.id)
+comment2 = Comment.create(song_id: song2.id, user_id: user1.id, text: "This is super relaxing. I love it.")
