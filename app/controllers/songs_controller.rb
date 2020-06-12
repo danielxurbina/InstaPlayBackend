@@ -9,12 +9,12 @@ class SongsController < ApplicationController
         render json: song
     end
 
-    # def show 
-    #     song = Song.find(params[:id])
-    #     render json: song
-    # end
+    def show 
+        song = Song.find(params[:id])
+        render json: song
+    end
 
-    def show
+    def find_songs
         song = Song.find_by(title: params[:title])
         song = rails_blob_path(song.song)
 
