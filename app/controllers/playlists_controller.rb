@@ -1,8 +1,11 @@
 class PlaylistsController < ApplicationController
     def index
         playlists = Playlist.all
-        render json: playlists 
-    end
+        # render json: playlists.map { |playlist| 
+        #     playlist.as_json.merge({ image: url_for(playlist.image)})
+        # }
+        render json: playlists
+    end 
 
     def create
         playlist = Playlist.create(playlist_params)
@@ -11,7 +14,7 @@ class PlaylistsController < ApplicationController
 
     def show
         playlist = Playlist.find(params[:id])
-        render json: playlist
+        render json: playlist.as_json.merge({image: url_for(playlist.image), user: (playlist.user), song: (playlist.songs)})
     end
 
     def find_playlist_image
