@@ -35,24 +35,9 @@ class UsersController < ApplicationController
 
     def update
         user = User.find(params[:id])
-        puts "params"
-        puts "params"
-        puts "params"
-        puts "params"
-        puts "params"
-        puts "params"
-        puts "params"
-        puts params
+
         user.update(user_params)
 
-        puts "user params"
-        puts "user params"
-        puts "user params"
-        puts "user params"
-        puts "user params"
-        puts "user params"
-        puts "user params"
-        puts user_params
         render json: user
     end
 

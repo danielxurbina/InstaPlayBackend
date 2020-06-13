@@ -11,7 +11,7 @@ class SongsController < ApplicationController
 
     def show 
         song = Song.find(params[:id])
-        render json: song
+        render json: song.as_json.merge({song: url_for(song.song), user: (song.user), comments: (song.comments), likes: (song.likes)})
     end
 
     def find_songs
