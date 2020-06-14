@@ -1,24 +1,34 @@
 class SongsController < ApplicationController
     def index
         songs = Song.all
-        render json: songs
+        render json: songs.map { |song| 
+            song.as_json.merge({ 
+                song: url_for(song.song), 
+                user: (song.user),
+                comments: (song.comments), 
+                likes: (song.likes)
+            })
+        }
     end
 
     def create
         song = Song.create(song_params)
-        render json: song
+        render json: song.as_json.merge({
+            song: url_for(song.song), 
+            duration: (song.duration), 
+            user_id: (song.user_id), 
+            comments: (song.comments), 
+            description: (song.description), 
+            likes: (song.likes), 
+            post_image: (song.post_image), 
+            title: (song.title), 
+            user: (song.user)
+        })
     end
 
     def show 
         song = Song.find(params[:id])
         render json: song.as_json.merge({song: url_for(song.song), user: (song.user), comments: (song.comments), likes: (song.likes)})
-    end
-
-    def find_songs
-        song = Song.find_by(title: params[:title])
-        song = rails_blob_path(song.song)
-
-        render json: {song: song, song: song}
     end
 
     def update 
