@@ -1,10 +1,10 @@
 class PlaylistsController < ApplicationController
     def index
         playlists = Playlist.all
-        # render json: playlists.map { |playlist| 
-        #     playlist.as_json.merge({ image: url_for(playlist.image)})
-        # }
-        render json: playlists
+        render json: playlists.map { |playlist| 
+            playlist.as_json.merge({ image: url_for(playlist.image), user: (playlist.user), songs: (playlist.songs)})
+        }
+        # render json: playlists
     end 
 
     def create
@@ -14,7 +14,7 @@ class PlaylistsController < ApplicationController
 
     def show
         playlist = Playlist.find(params[:id])
-        render json: playlist.as_json.merge({image: url_for(playlist.image), user: (playlist.user), song: (playlist.songs)})
+        render json: playlist.as_json.merge({image: url_for(playlist.image), user: (playlist.user), songs: (playlist.songs)})
     end
 
     def find_playlist_image
@@ -26,10 +26,18 @@ class PlaylistsController < ApplicationController
 
     def update
         playlist = Playlist.find(params[:id])
-        playlist.update(image: params[:image], title: params[:title], description: params[:description])
+        # playlist.update(image: params[:image], title: params[:title], description: params[:description])
 
-        image_url = rails_blob_path(playlist.image)
-        render json: {playlist: playlist, image_url: image_url}
+        # image_url = rails_blob_path(playlist.image)
+        # render json: {playlist: playlist, image_url: image_url}
+        playlist.update(playlist_params)
+        render json: playlist.as_json.merge({
+            image: url_for(playlist.image),
+            description: (playlist.description),
+            songs: (playlist.songs),
+            title: (playlist.title),
+            user: (playlist.user)
+        })
     end
 
     private
