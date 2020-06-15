@@ -32,6 +32,7 @@ user3.image.attach(
 
 song1 = Song.create(user_id: user1.id, title: "Weekend 4 The Girls (Harmless Remix)", description: "my new single, wrote it when i was traveling in germany, hope you guys like it!", post_image: "https://m.media-amazon.com/images/I/91+sfzHEEYL._SS500_.jpg")
 song2 = Song.create(user_id: user2.id, title: "Meeting Points At 2AM", description: "wrote this song for my little brother, the days when were so young and so alive, i love you.", post_image: "https://i1.sndcdn.com/artworks-000192976945-e71889-t500x500.jpg")
+song3 = Song.create(user_id: user3.id, title: "The Girl I Haven't Met", description: "this is for lacey, my girlfriend, hope you guys enjoy it.", post_image: "https://i.pinimg.com/originals/c2/4a/af/c24aaf49f7dc286dd0f7020a5bb820ac.png")
 
 song1.song.attach(
     io: File.open('./public/songs/weekend-for-the-girls.mp3'),
@@ -45,9 +46,15 @@ song2.song.attach(
     content_type: 'audio/mp3'
 )
 
+song3.song.attach(
+    io: File.open('./public/songs/the-girl-i-havent-met.mp3'),
+    filename: 'the-girl-i-havent-met.mp3',
+    content_type: 'audio/mp3'
+)
+
 playlist1 = Playlist.create(user_id: user1.id, title: "Mood", description: 'chill vibes')
 playlist2 = Playlist.create(user_id: user1.id, title: "Drive", description: "enjoy the drive with this chill playlist")
-playlist3 = Playlist.create(user_id: user2.id, title: "Relax", description: "just sit back and relax").image.attach(io: File.open('./public/playlist_images/playlist_image1.jpg'), filename: 'playlist_image1.jpg', content_type: 'image/jpeg')
+playlist3 = Playlist.create(user_id: user2.id, title: "Relax", description: "just sit back and relax")
 
 playlist1.image.attach(
     io: File.open('./public/playlist_images/playlist_image1.jpg'),
@@ -58,6 +65,12 @@ playlist1.image.attach(
 playlist2.image.attach(
     io: File.open('./public/playlist_images/playlist_image2.jpg'),
     filename: 'playlist_image2.jpg',
+    content_type: 'image/jpeg'
+)
+
+playlist3.image.attach(
+    io: File.open('./public/playlist_images/playlist_image1.jpg'), 
+    filename: 'playlist_image1.jpg', 
     content_type: 'image/jpeg'
 )
 
