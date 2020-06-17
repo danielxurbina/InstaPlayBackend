@@ -9,7 +9,14 @@ class PlaylistsController < ApplicationController
 
     def create
         playlist = Playlist.create(playlist_params)
-        render json: playlist
+        render json: playlist.as_json.merge({ 
+            image: url_for(playlist.image), 
+            description: (playlist.description),
+            songs: (playlist.songs),
+            title: (playlist.title),
+            user: (playlist.user), 
+            user_id: (playlist.user_id)
+        })
     end
 
     def show
