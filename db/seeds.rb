@@ -77,6 +77,12 @@ user22.image.attach(io: File.open('./public/user_images/daughter-image.jpg'),fil
 user23 = User.create(name: "The xx", username: "thexx", password: "password", bio: "Romy, Oliver, Jamie 💙", background_image_url: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
 user23.image.attach(io: File.open('./public/user_images/the-xx-image.jpeg'),filename: 'the-xx-image.jpeg',content_type: 'image/jpeg')
 
+user24 = User.create(name: "Playboi Carti", username: "playboicarti", password: "password", bio: "smarturl.it/atMEH", background_image_url: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
+user24.image.attach(io: File.open('./public/user_images/carti-image.jpg'), filename: 'carti-image.jpg', content_type: 'image/jpeg')
+
+user25 = User.create(name: "Frank Ocean", username: "blonded", password: "password", bio: "blonded.co", background_image_url: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
+user25.image.attach(io: File.open('./public/user_images/frank-ocean-image.jpeg'), filename: 'frank-ocean-image.jpeg', content_type: 'image/jpeg')
+
 ################## SONG SEED DATA ##################
 
 song1 = Song.create(user_id: user1.id, title: "Weekend 4 The Girls (Harmless Remix)", description: "my new single, wrote it when i was traveling in germany, hope you guys like it!", post_image: "https://m.media-amazon.com/images/I/91+sfzHEEYL._SS500_.jpg")
@@ -103,7 +109,7 @@ song7.song.attach(io: File.open('./public/songs/c-u-girl.mp3'), filename: 'c-u-g
 song8 = Song.create(user_id: user8.id, title: "Air", description: "Off my new project!", post_image: "https://i1.wp.com/ventsmagazine.com/wp-content/uploads/2019/12/thumbnail_333-Cover-Art-Low-Res-1.jpg?fit=1280%2C1280&ssl=1")
 song8.song.attach(io: File.open('./public/songs/air.mp3'), filename: 'air.mp3', content_type: 'audio/mp3')
 
-song9 = Song.create(user_id: user9.id, title: "News From The War", description: "Just released my sophmore album today, it feel so surreal that this project is finally coming out. I worked so hard on this so I hope you guys love it.", post_image: "https://lh3.googleusercontent.com/proxy/bNPfVooFldpVj6xWUanqkqRbVAFr4yA6eMdaZpPaAsC_BBUqiJdp7GEicOcyycSbZ9PWwuv6H3Z4zD52R9rmzVRUboZ1rH_L6VyVgnsUb_YeeO65nBQCIbU")
+song9 = Song.create(user_id: user9.id, title: "News From The War", description: "Just released my sophmore album today, it feel so surreal that this project is finally coming out. I worked so hard on this so I hope you guys love it.", post_image: "https://c.saavncdn.com/180/Everything-And-You-English-2019-20200107011338-500x500.jpg")
 song9.song.attach(io: File.open('./public/songs/news-from-the-war.mp3'), filename: 'news-from-the-war.mp3', content_type: 'audio/mp3')
 
 song10 = Song.create(user_id: user10.id, title: "Prune, You Talk Funny", description: "Throwback to when I wrote this in my bedroom. Just wanted to share this with ya'll, i love you guys.", post_image: "https://m.media-amazon.com/images/I/81TkhBXyxuL._SS500_.jpg")
@@ -147,6 +153,12 @@ song22.song.attach(io: File.open('./public/songs/youth.mp3'), filename: 'youth.m
 
 song23 = Song.create(user_id: user23.id, title: "Heart Skipped A Beat", description: "Relationships are messy and I expressed that in this song. Hope you guys enjoy it.", post_image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/4053a445366325.582dfab34d902.png")
 song23.song.attach(io: File.open('./public/songs/heart-skipped-a-beat.mp3'), filename: 'heart-skipped-a-beat.mp3', content_type: 'audio/mp3')
+
+song24 = Song.create(user_id: user24.id, title: "Flatbed Freestyle", description: "🖤", post_image: "https://images.genius.com/a6edc3b66b348994bc5217b05909951d.1000x1000x1.png")
+song24.song.attach(io: File.open('./public/songs/flatbed-freestyle.mp3'), filename: 'flatbed-freestyle.mp3', content_type: 'audio/mp3')
+
+song25 = Song.create(user_id: user25.id, title: "Nights", description: "nights.", post_image: "https://i.pinimg.com/736x/13/13/d0/1313d0952ce161301d753f4e01fce58f.jpg")
+song25.song.attach(io: File.open('./public/songs/nights.mp3'), filename: 'night.mp3', content_type: 'audio/mp3')
 
 
 
@@ -373,6 +385,16 @@ likes94 = Like.create(song_id: song22.id, user_id: user6.id)
 likes95 = Like.create(song_id: song23.id, user_id: user22.id)
 likes96 = Like.create(song_id: song23.id, user_id: user21.id)
 likes97 = Like.create(song_id: song23.id, user_id: user9.id)
+
+#### SONG 24 LIKES ####
+likes98 = Like.create(song_id: song24.id, user_id: user22.id)
+likes99 = Like.create(song_id: song24.id, user_id: user21.id)
+likes100 = Like.create(song_id: song24.id, user_id: user9.id)
+
+#### SONG 25 LIKES ####
+likes101 = Like.create(song_id: song25.id, user_id: user22.id)
+likes102 = Like.create(song_id: song25.id, user_id: user21.id)
+likes103 = Like.create(song_id: song25.id, user_id: user9.id)
 
 ################## COMMENTS SEED DATA ##################
 
